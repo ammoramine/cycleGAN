@@ -25,5 +25,8 @@ def get_apple_emojis():
     list_apple_emojis = path_apple_emoji.iterdir()
     return list_apple_emojis
 
+
+#TODO: add factory of source and target accesor on
+# subsequent versions of code
 get_src_imgs = get_apple_emojis
 get_tgt_imgs = get_zenly_emojis
