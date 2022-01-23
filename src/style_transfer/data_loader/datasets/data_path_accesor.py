@@ -13,11 +13,6 @@ def get_path_data():
 
 
 
-def get_zenly_emojis():
-    path_data = get_path_data()
-    path_zenly_emoji = path_data.joinpath("zenly_emojis/Emojis Steven")
-    list_zenly_emojis = path_zenly_emoji.iterdir()
-    return list_zenly_emojis
 
 def get_facebook_emojis():
     path_data = get_path_data()
