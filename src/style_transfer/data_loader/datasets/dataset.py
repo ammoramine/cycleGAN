@@ -9,7 +9,17 @@ from style_transfer.data_loader.datasets import data_path_accesor
 dir_file = Path(__file__).parent
 path_data = dir_file.joinpath("../../../Data")
 
-full_transform = transforms.Compose([Image.open, transforms.ToTensor()])
+
+#TODO: store this function in a proper module
+
+def convert_to_rgba(pil_img):
+    return pil_img.convert('RGBA')
+
+full_transform = transforms.Compose([Image.open, convert_to_rgba, transforms.ToTensor()])
+
+
+
+
 
 
 class CycleGanDataset(Dataset):
@@ -35,3 +45,6 @@ class CycleGanDataset(Dataset):
         if self.src_transform is not None:
             inpt = self.src_transform(inpt)
         return inpt,label
+
+    def __len__(self):
+        return len(self.all_imgs_with_lbl)
