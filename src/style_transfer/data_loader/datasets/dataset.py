@@ -3,6 +3,7 @@ from torchvision import transforms
 from PIL import Image
 from pathlib import Path
 from itertools import chain
+import torch
 
 from style_transfer.data_loader.datasets import data_path_accesor
 
@@ -37,14 +38,14 @@ class CycleGanDataset(Dataset):
             and the src image's distribution is labelled with 0
         """
         imgs = self.src_imgs_path+self.tgt_imgs_path
-        lbls = len(self.src_imgs_path)*[0]+len(self.tgt_imgs_path)*[1]
+        lbls = len(self.src_imgs_path)*[0.0]+len(self.tgt_imgs_path)*[1.0]
         return list(zip(imgs,lbls))
 
     def __getitem__(self, i):
         inpt,label = self.all_imgs_with_lbl[i]
         if self.src_transform is not None:
             inpt = self.src_transform(inpt)
-        return inpt,label
+        return inpt,torch.tensor(label)
 
     def __len__(self):
         return len(self.all_imgs_with_lbl)
