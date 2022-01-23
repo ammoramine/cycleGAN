@@ -4,10 +4,10 @@ import pytest
 import torch
 
 
-# @pytest.mark.parametrize("batch_size",32)
-@pytest.fixture()
-def data_loader():
-    d_loader = dataloader_mod.get(batch_size=16)
+@pytest.fixture(params=[0,1])
+def data_loader(request):
+    index = request.param
+    d_loader = dataloader_mod.get(batch_size=16,index=index)
     return d_loader
 
 @pytest.mark.slow
