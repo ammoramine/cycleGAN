@@ -19,6 +19,12 @@ def get_zenly_emojis():
     list_zenly_emojis = path_zenly_emoji.iterdir()
     return list_zenly_emojis
 
+def get_facebook_emojis():
+    path_data = get_path_data()
+    path_apple_emoji = path_data.joinpath("emojis_dataset/image/Facebook")
+    list_apple_emojis = path_apple_emoji.iterdir()
+    return list_apple_emojis
+
 def get_apple_emojis():
     path_data = get_path_data()
     path_apple_emoji = path_data.joinpath("emojis_dataset/image/Apple")
@@ -29,4 +35,4 @@ def get_apple_emojis():
 #TODO: add factory of source and target accesor on
 # subsequent versions of code
 get_src_imgs = get_apple_emojis
-get_tgt_imgs = get_zenly_emojis
+get_tgt_imgs = get_facebook_emojis
