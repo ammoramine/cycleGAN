@@ -8,15 +8,18 @@ from style_transfer import models
 
 
 @pytest.fixture(scope="function")
-def random_batch_one():
+def random_batch():
     """
-        random batch with one element from the dataset, of
-        shape (N,4,...)
+        random batch of 4D from the dataset,with shape of
+        the form (.,4,...)
         There is 4 channels because it is an RGBA image
     """
-    #TODO : replace utils by utils_data
-    tsr_img = utils.get_random_tensor().unsqueeze(0)
+    #TODO , make the size of the batch controlable
+    tsr_img = utils.get_random_tensor()
     return tsr_img
+
+
+
 
 # @pytest.fixture(scope="function",params=range(100))
 @pytest.fixture(scope="function",params=range(100))
@@ -43,3 +46,12 @@ def model():
     model = models.generator_mod.Generator()
     return model
 
+
+@pytest.fixture(scope="module")
+def discriminator():
+    """
+    load the generator model
+    :return:
+    """
+    model = models.discriminator_mod.Discriminator()
+    return model
