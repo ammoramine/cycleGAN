@@ -17,7 +17,7 @@ def test_discriminator_output_shape(discriminator_input_output):
     :param discriminator_input_output:
     """
     inpt,outpt = discriminator_input_output
-    assert  outpt.shape[1] == 1
+    assert outpt.shape[1] == 1
     assert outpt.shape[0] == inpt.shape[0]
 
 
