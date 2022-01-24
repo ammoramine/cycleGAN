@@ -19,11 +19,6 @@ def init_params_for_trainning():
 #TODO: take into consideration, the fact that src and target
 # distribution don't have necessarily the same shape
 
-# def init_models():
-#     params = dict()
-#     params["model"] = models.cycle_gan_mod.CycleGan()
-#     return params
-
 def init_data_loaders(batch_size=32):
     params = dict()
     params["src_dataloader"] = dataloader_mod.get(batch_size,index=0)
