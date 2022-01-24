@@ -13,7 +13,7 @@ class Generator(nn.Module):
         layerm3 = nn.ConvTranspose2d(128,64,kernel_size=(3,3))
         layerm2 = nn.ConvTranspose2d(64,32,kernel_size=(3,3))
         layerm1 = nn.ConvTranspose2d(32,4,kernel_size=(9,9))
-        self.layers = [layer1,layer2,layer3]+residual_blocks+[layerm3,layerm2,layerm1]
+        self.layers = nn.ModuleList([layer1,layer2,layer3]+residual_blocks+[layerm3,layerm2,layerm1])
 
     def forward(self,inpt):
         tmp = inpt
