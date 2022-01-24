@@ -11,7 +11,7 @@ device = "cuda" if torch.cuda.is_available() else "cpu"
 
 def init_params_for_trainning():
     params = dict()
-    params["models"] = init_models()
+    params["model"] = models.cycle_gan_mod.CycleGan()
     params["data_loaders"] = init_data_loaders()
     params["losses"] = losses.CycleGanLoss()
     return dict_to_obj.dict2obj(params)
@@ -19,10 +19,10 @@ def init_params_for_trainning():
 #TODO: take into consideration, the fact that src and target
 # distribution don't have necessarily the same shape
 
-def init_models():
-    params = dict()
-    params["cycle_gan"] = models.cycle_gan_mod.CycleGan()
-    return params
+# def init_models():
+#     params = dict()
+#     params["model"] = models.cycle_gan_mod.CycleGan()
+#     return params
 
 def init_data_loaders(batch_size=32):
     params = dict()

@@ -7,7 +7,7 @@ from style_transfer.data_loader import dataloader_mod
 def test_data_loader_param_initialization():
     params = common.init_params_for_trainning()
 
-    assert type(params.models.cycle_gan) is cycle_gan_mod.CycleGan
+    assert type(params.model) is cycle_gan_mod.CycleGan
 
     assert type(params.losses) is losses.CycleGanLoss
 
