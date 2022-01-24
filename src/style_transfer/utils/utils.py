@@ -8,7 +8,7 @@ import torch
 
 
 dir_file = Path(__file__).parent
-apple_images = dir_file.joinpath("../../Data/emojis_dataset/emojis_dataset/image/Apple")
+apple_images = dir_file.joinpath("../../../Data/emojis_dataset/emojis_dataset/image/Apple")
 
 #TODO: apple_image should be read from data_path_accesor that should be put outside
 
