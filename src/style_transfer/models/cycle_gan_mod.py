@@ -17,8 +17,7 @@ class CycleGan(nn.Module):
 
         #TODO: custom generators construction to be added later
 
-    def forward(self,inpt):
-        inpt_src,inpt_tgt = inpt
+    def forward(self,inpt_src,inpt_tgt):
 
         fake_src = self.generator_src(inpt_tgt)
         fake_tgt = self.generator_tgt(inpt_src)
@@ -34,6 +33,6 @@ class CycleGan(nn.Module):
         discri_fake_tgt = self.discriminator_tgt(fake_tgt)
 
 
-        return inpt_src,inpt_tgt,src_2_src,tgt_2_tgt,discri_real_src,discri_fake_src,discri_real_tgt,discri_fake_tgt
+        return src_2_src,tgt_2_tgt,discri_real_src,discri_fake_src,discri_real_tgt,discri_fake_tgt
 
         #TODO: make cycleGAN smaller, and add correponding tests
