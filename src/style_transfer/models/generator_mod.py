@@ -1,6 +1,8 @@
 from . import residual_block_mod
 from torch import nn
 
+
+#TODO: add Factory of generators, to take into consideration images'distribution of differents shapes
 class Generator(nn.Module):
     def __init__(self,nb_residual_block=3):
         super(Generator, self).__init__()
