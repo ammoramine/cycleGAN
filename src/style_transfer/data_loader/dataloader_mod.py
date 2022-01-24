@@ -11,5 +11,5 @@ def get(batch_size,index):
     :return:
     """
     dataset = datasets.get(type_dataset="with_full_transform",index=index)
-    dataloader = DataLoader(dataset=dataset,batch_size=batch_size,shuffle=True)
+    dataloader = DataLoader(dataset=dataset,batch_size=batch_size,shuffle=True,drop_last=True)
     return dataloader
