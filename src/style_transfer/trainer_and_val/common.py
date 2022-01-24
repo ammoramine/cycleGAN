@@ -21,14 +21,7 @@ def init_params_for_trainning():
 
 def init_models():
     params = dict()
-    params["generator_direct"] = models.generator_mod.Generator()
-    # generator from the source to the target distribution
-    params["generator_reverse"] = models.generator_mod.Generator()
-    # generator from the target to the source distribution
-    params["discriminator_src"] = models.discriminator_mod.Discriminator()
-    # discriminator for  the source distribution
-    params["discriminator_tgt"] = models.discriminator_mod.Discriminator()
-    # discriminator for  the target distribution
+    params["cycle_gan"] = models.cycle_gan_mod.CycleGan()
     return params
 
 def init_data_loaders(batch_size=32):
