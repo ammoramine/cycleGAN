@@ -13,7 +13,7 @@ def init_params_for_trainning():
     params = dict()
     params["model"] = models.cycle_gan_mod.CycleGan()
     params["data_loaders"] = init_data_loaders()
-    params["losses"] = losses.CycleGanLoss()
+    params["loss"] = losses.CycleGanLoss()
     return dict_to_obj.dict2obj(params)
 
 #TODO: take into consideration, the fact that src and target

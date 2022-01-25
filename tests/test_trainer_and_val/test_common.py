@@ -9,7 +9,7 @@ def test_data_loader_param_initialization():
 
     assert type(params.model) is cycle_gan_mod.CycleGan
 
-    assert type(params.losses) is losses.CycleGanLoss
+    assert type(params.loss) is losses.CycleGanLoss
 
     assert type(params.data_loaders.src_dataloader) is dataloader_mod.DataLoader
     assert type(params.data_loaders.tgt_dataloader) is dataloader_mod.DataLoader
