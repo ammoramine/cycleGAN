@@ -17,15 +17,19 @@ def get_random_batch_discrimination_output():
     return rand_batch
 
 @pytest.fixture(scope="function")
-def random_input_output():
-    random_input = get_random_batch_discrimination_output()
-    random_output = get_random_batch_discrimination_output()
-    return random_input,random_output
+def output_input_gan_data():
+    from style_transfer.models import cycle_gan_mod
+    from style_transfer.utils import data_sampler
+    cycle_gan = cycle_gan_mod.CycleGan()
+    input_gan_data = data_sampler.get_cycle_gan_input()
+    output_gan_data = cycle_gan(*input_gan_data)
+    return output_gan_data,input_gan_data
 
-def test_loss_value(random_input_output):
-    random_input,random_output = random_input_output
+def test_loss_value(output_input_gan_data):
+    # random_input,random_output = random_input_output
+    output_gan_data, input_gan_data = output_input_gan_data
     loss_func = losses.CycleGanLoss()
-    loss_val = loss_func(random_input,random_output)
+    loss_val = loss_func(output_gan_data,input_gan_data)
     assert type(loss_val) is torch.Tensor
     assert len(loss_val.shape) == 0 #the output of loss is scalar
     assert loss_val>0 # the loss value must be greater than 0
