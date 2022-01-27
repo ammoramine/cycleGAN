@@ -15,3 +15,5 @@ sign, to me at least, that I’m using abstractions that aren’t powerful enoug
 I’m generating by hand the expansions of some macro that I need to write.1
 — Paul Graham
  Lisp hacker and venture capitalist
+
+dont' know the quotee, but loved the quote.
